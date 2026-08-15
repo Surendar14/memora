@@ -4,10 +4,21 @@
   min-height: 80vh;
   display: flex;
   align-items: center;
+  position: relative;
+}
+
+.section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--warm-beige), transparent);
 }
 
 .inner {
-  max-width: 800px;
+  max-width: 700px;
   margin: 0 auto;
   width: 100%;
 }
@@ -16,6 +27,7 @@
   opacity: 0;
   transform: translateY(30px);
   transition: all var(--duration-slower) var(--ease-out-expo);
+  position: relative;
 }
 
 .content.visible {
@@ -23,57 +35,77 @@
   transform: translateY(0);
 }
 
-.card {
+.letter {
   position: relative;
   background: var(--cream);
   border-radius: var(--radius-xl);
   padding: var(--space-2xl) var(--space-xl);
   box-shadow: var(--shadow-large);
+  z-index: 1;
+  overflow: hidden;
 }
 
-.cardInner {
+.letterHeader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-md);
+  margin-bottom: var(--space-xl);
+}
+
+.letterDecor {
+  width: 40px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--rose), transparent);
+}
+
+.letterDate {
+  font-family: var(--font-body);
+  font-size: var(--text-xs);
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--warm-gray);
+}
+
+.letterBody {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: var(--space-xl);
-}
-
-.label {
-  font-family: var(--font-body);
-  font-size: var(--text-xs);
-  font-weight: 500;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--rose);
-}
-
-.quote {
   text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: var(--space-md);
 }
 
-.quoteMark {
+.letterText {
   font-family: var(--font-display);
-  font-size: var(--text-4xl);
-  color: var(--rose);
-  opacity: 0.3;
-  line-height: 1;
-}
-
-.text {
-  font-family: var(--font-display);
-  font-size: var(--text-2xl);
+  font-size: var(--text-3xl);
   font-weight: 300;
   font-style: italic;
-  line-height: 1.5;
+  line-height: 1.4;
   color: var(--charcoal);
-  max-width: 550px;
 }
 
-.signature {
+.letterDivider {
+  width: 50px;
+  height: 1px;
+  background: var(--warm-beige);
+}
+
+.letterQuote {
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  font-weight: 300;
+  line-height: 1.5;
+  color: var(--charcoal-muted);
+}
+
+.letterFooter {
+  margin-top: var(--space-xl);
+  display: flex;
+  justify-content: center;
+}
+
+.letterSignature {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -94,7 +126,18 @@
   color: var(--warm-gray);
 }
 
-.cardShadow {
+.letterTexture {
+  position: absolute;
+  inset: 0;
+  background: 
+    linear-gradient(90deg, transparent 79px, rgba(0,0,0,0.02) 79px, rgba(0,0,0,0.02) 80px, transparent 80px),
+    linear-gradient(rgba(0,0,0,0.01) 1px, transparent 1px);
+  background-size: 100% 28px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.letterShadow {
   position: absolute;
   bottom: -10px;
   left: 20px;
@@ -107,11 +150,11 @@
 }
 
 @media (max-width: 768px) {
-  .card {
+  .letter {
     padding: var(--space-xl) var(--space-lg);
   }
 
-  .text {
-    font-size: var(--text-xl);
+  .letterText {
+    font-size: var(--text-2xl);
   }
 }

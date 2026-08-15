@@ -5,10 +5,21 @@
   justify-content: center;
   padding: var(--space-section) var(--space-lg);
   background: var(--ivory);
+  position: relative;
+}
+
+.section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--warm-beige), transparent);
 }
 
 .inner {
-  max-width: 800px;
+  max-width: 900px;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -19,7 +30,7 @@
 .message {
   text-align: center;
   opacity: 0;
-  transform: translateY(40px);
+  transform: translateY(50px);
   transition: all var(--duration-slower) var(--ease-out-expo);
 }
 
@@ -30,17 +41,17 @@
 
 .text {
   font-family: var(--font-display);
-  font-size: var(--text-4xl);
+  font-size: var(--text-5xl);
   font-weight: 300;
-  line-height: 1.2;
+  line-height: 1.15;
   color: var(--charcoal-muted);
 }
 
 .textLarge {
   font-family: var(--font-display);
-  font-size: var(--text-5xl);
+  font-size: var(--text-6xl);
   font-weight: 400;
-  line-height: 1.1;
+  line-height: 1.05;
   color: var(--charcoal);
 }
 
@@ -50,26 +61,27 @@
 }
 
 .divider {
-  width: 60px;
+  width: 40px;
   height: 40px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.dividerLine {
-  width: 1px;
-  height: 100%;
-  background: linear-gradient(180deg, transparent, var(--rose), transparent);
+.dividerDot {
+  width: 6px;
+  height: 6px;
+  background: var(--rose);
+  border-radius: 50%;
   opacity: 0.5;
 }
 
 @media (max-width: 768px) {
   .text {
-    font-size: var(--text-3xl);
+    font-size: var(--text-4xl);
   }
 
   .textLarge {
-    font-size: var(--text-4xl);
+    font-size: var(--text-5xl);
   }
 }

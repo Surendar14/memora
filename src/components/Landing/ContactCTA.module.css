@@ -1,5 +1,5 @@
 .section {
-  min-height: 70vh;
+  min-height: 80vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -11,12 +11,12 @@
 .bg {
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, var(--ivory) 0%, var(--charcoal) 20%, var(--charcoal) 80%, var(--ivory) 100%);
+  background: linear-gradient(180deg, var(--ivory) 0%, var(--charcoal) 15%, var(--charcoal) 85%, var(--ivory) 100%);
   z-index: -1;
 }
 
 .inner {
-  max-width: 700px;
+  max-width: 800px;
   width: 100%;
   margin: 0 auto;
 }
@@ -39,9 +39,9 @@
 
 .title {
   font-family: var(--font-display);
-  font-size: var(--text-5xl);
+  font-size: var(--text-6xl);
   font-weight: 300;
-  line-height: 1.15;
+  line-height: 1.1;
   color: var(--ivory);
 }
 
@@ -51,7 +51,8 @@
 }
 
 .subtitle {
-  font-size: var(--text-lg);
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
   color: var(--warm-gray-light);
   max-width: 500px;
   line-height: 1.6;
@@ -63,7 +64,7 @@
   gap: var(--space-sm);
   background: var(--ivory);
   color: var(--charcoal);
-  padding: var(--space-md) var(--space-xl);
+  padding: var(--space-md) var(--space-2xl);
   border-radius: var(--radius-full);
   font-size: var(--text-lg);
   font-weight: 500;
@@ -81,11 +82,15 @@
 
 @media (max-width: 768px) {
   .title {
-    font-size: var(--text-4xl);
+    font-size: var(--text-5xl);
+  }
+
+  .subtitle {
+    font-size: var(--text-lg);
   }
 
   .cta {
-    padding: var(--space-md) var(--space-lg);
+    padding: var(--space-md) var(--space-xl);
     font-size: var(--text-base);
   }
 }

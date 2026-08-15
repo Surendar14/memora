@@ -24,7 +24,8 @@ export default function ContactCTA() {
           </h2>
 
           <p className={styles.subtitle}>
-            Tell us the occasion, and we'll create something memorable.
+            Tell us the occasion.<br />
+            We'll create something memorable.
           </p>
 
           <button onClick={openContact} className={styles.cta}>

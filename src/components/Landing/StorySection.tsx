@@ -8,26 +8,38 @@ export default function StorySection() {
     <section className={styles.section} aria-label="Your story">
       <div className={styles.inner}>
         <div ref={ref} className={`${styles.content} ${visible ? styles.visible : ''}`}>
-          <div className={styles.card}>
-            <div className={styles.cardInner}>
-              <span className={styles.label}>Every story deserves a place</span>
+          <div className={styles.letter}>
+            <div className={styles.letterHeader}>
+              <div className={styles.letterDecor} />
+              <span className={styles.letterDate}>June 14, 2025</span>
+              <div className={styles.letterDecor} />
+            </div>
 
-              <div className={styles.quote}>
-                <span className={styles.quoteMark}>❝</span>
-                <p className={styles.text}>
-                  From the first conversation to all the little moments in between,
-                  every memory became a part of our story.
-                </p>
-              </div>
+            <div className={styles.letterBody}>
+              <p className={styles.letterText}>
+                From the very first moment,<br />
+                you made everything better.
+              </p>
 
-              <div className={styles.signature}>
+              <div className={styles.letterDivider} />
+
+              <p className={styles.letterQuote}>
+                "The best things in life are<br />
+                the people you love."
+              </p>
+            </div>
+
+            <div className={styles.letterFooter}>
+              <div className={styles.letterSignature}>
                 <div className={styles.signatureLine} />
                 <span className={styles.signatureText}>With love, always</span>
               </div>
             </div>
 
-            <div className={styles.cardShadow} />
+            <div className={styles.letterTexture} />
           </div>
+
+          <div className={styles.letterShadow} />
         </div>
       </div>
     </section>

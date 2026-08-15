@@ -2,20 +2,55 @@ import { useInView } from '../../hooks/useInView'
 import styles from './TheExperience.module.css'
 
 const sections = [
-  { type: 'hero', content: 'Happy Birthday, Sarah' },
-  { type: 'photo', label: 'Memory' },
-  { type: 'story', content: 'From the very first moment, you made everything better.' },
-  { type: 'quote', content: '"The best things in life are the people you love..."' },
-  { type: 'timeline', label: 'Our Journey' },
-  { type: 'message', content: 'Here\'s to many more memories together.' }
+  {
+    id: 'hero',
+    label: '01',
+    title: 'For Sarah',
+    content: 'Happy Birthday',
+    type: 'dark'
+  },
+  {
+    id: 'photo',
+    label: '02',
+    title: 'A Memory',
+    content: 'June 14, 2025',
+    type: 'photo'
+  },
+  {
+    id: 'story',
+    label: '03',
+    title: 'Your Story',
+    content: 'From the very first moment, you made everything better.',
+    type: 'light'
+  },
+  {
+    id: 'quote',
+    label: '04',
+    title: 'A Quote',
+    content: '"The best things in life are the people you love."',
+    type: 'light'
+  },
+  {
+    id: 'timeline',
+    label: '05',
+    title: 'Our Journey',
+    content: 'Every memory, together.',
+    type: 'photo'
+  },
+  {
+    id: 'message',
+    label: '06',
+    title: 'Final Message',
+    content: 'Here\'s to many more memories together.',
+    type: 'dark'
+  }
 ]
 
 export default function TheExperience() {
   const [titleRef, titleVisible] = useInView<HTMLDivElement>()
-  const [cardsRef, cardsVisible] = useInView<HTMLDivElement>()
 
   return (
-    <section id="experiences" className={styles.section} aria-label="The Memora Experience">
+    <section id="moments" className={styles.section} aria-label="The Memora Experience">
       <div className={styles.inner}>
         <div
           ref={titleRef}
@@ -29,62 +64,48 @@ export default function TheExperience() {
           </p>
         </div>
 
-        <div
-          ref={cardsRef}
-          className={`${styles.experienceGrid} ${cardsVisible ? styles.visible : ''}`}
-        >
-          {sections.map((section, i) => (
-            <div
-              key={section.type + i}
-              className={`${styles.card} ${styles[section.type]}`}
-              style={{ transitionDelay: `${i * 0.08}s` }}
-            >
-              {section.type === 'hero' && (
-                <div className={styles.cardHero}>
-                  <div className={styles.cardDecor} />
-                  <h3 className={styles.cardHeroText}>{section.content}</h3>
-                  <div className={styles.cardDecorBottom} />
-                </div>
-              )}
+        <div className={styles.stickyContainer}>
+          <div className={styles.stickyContent}>
+            <div className={styles.stickyLeft}>
+              <p className={styles.stickyText}>
+                Scroll through<br />
+                <span className={styles.stickyAccent}>an actual Memora.</span>
+              </p>
+            </div>
 
-              {section.type === 'photo' && (
-                <div className={styles.cardPhoto}>
-                  <div className={styles.cardPhotoInner} />
-                  <span className={styles.cardPhotoLabel}>{section.label}</span>
-                </div>
-              )}
-
-              {section.type === 'story' && (
-                <div className={styles.cardStory}>
-                  <div className={styles.cardStoryQuote}>❝</div>
-                  <p className={styles.cardStoryText}>{section.content}</p>
-                </div>
-              )}
-
-              {section.type === 'quote' && (
-                <div className={styles.cardQuote}>
-                  <p className={styles.cardQuoteText}>{section.content}</p>
-                  <div className={styles.cardQuoteLine} />
-                </div>
-              )}
-
-              {section.type === 'timeline' && (
-                <div className={styles.cardTimeline}>
-                  <span className={styles.cardTimelineLabel}>{section.label}</span>
-                  <div className={styles.cardTimelineDots}>
-                    <span /><span /><span />
+            <div className={styles.stickyRight}>
+              <div className={styles.phone}>
+                <div className={styles.phoneScreen}>
+                  <div className={styles.scrollContent}>
+                    {sections.map((section) => (
+                      <div
+                        key={section.id}
+                        className={`${styles.scrollSection} ${styles[section.type]}`}
+                      >
+                        <span className={styles.scrollLabel}>{section.label}</span>
+                        <h3 className={styles.scrollTitle}>{section.title}</h3>
+                        {section.type === 'photo' ? (
+                          <div className={styles.scrollPhoto}>
+                            <div className={styles.scrollPhotoInner} />
+                          </div>
+                        ) : null}
+                        <p className={styles.scrollText}>{section.content}</p>
+                        {section.id === 'timeline' && (
+                          <div className={styles.scrollTimeline}>
+                            <div className={styles.scrollTimelineDot} />
+                            <div className={styles.scrollTimelineLine} />
+                            <div className={styles.scrollTimelineDot} />
+                            <div className={styles.scrollTimelineLine} />
+                            <div className={styles.scrollTimelineDot} />
+                          </div>
+                        )}
+                      </div>
+                    ))}
                   </div>
                 </div>
-              )}
-
-              {section.type === 'message' && (
-                <div className={styles.cardMessage}>
-                  <p className={styles.cardMessageText}>{section.content}</p>
-                  <div className={styles.cardMessageHeart}>♥</div>
-                </div>
-              )}
+              </div>
             </div>
-          ))}
+          </div>
         </div>
       </div>
     </section>

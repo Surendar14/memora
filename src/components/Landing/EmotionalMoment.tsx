@@ -21,7 +21,7 @@ export default function EmotionalMoment() {
         </div>
 
         <div className={styles.pause}>
-          <div className={styles.pauseDot} />
+          <div className={styles.pauseLine} />
         </div>
 
         <div

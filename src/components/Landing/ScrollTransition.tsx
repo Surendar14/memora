@@ -19,7 +19,7 @@ export default function ScrollTransition() {
         </div>
 
         <div className={styles.divider}>
-          <div className={styles.dividerLine} />
+          <div className={styles.dividerDot} />
         </div>
 
         <div

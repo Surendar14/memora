@@ -11,8 +11,16 @@ export default function PersonalTouch() {
           ref={ref}
           className={`${styles.content} ${visible ? styles.visible : ''}`}
         >
-          <div className={styles.card}>
-            <div className={styles.cardInner}>
+          <div className={styles.layout}>
+            <div className={styles.photoContainer}>
+              <div className={styles.photo}>
+                <div className={styles.photoOverlay} />
+              </div>
+              <div className={styles.photoDecor1} />
+              <div className={styles.photoDecor2} />
+            </div>
+
+            <div className={styles.text}>
               <span className={styles.label}>Made for one person</span>
 
               <h2 className={styles.title}>
@@ -31,8 +39,6 @@ export default function PersonalTouch() {
                 <div className={styles.exampleDecor} />
               </div>
             </div>
-
-            <div className={styles.cardGlow} />
           </div>
         </div>
       </div>

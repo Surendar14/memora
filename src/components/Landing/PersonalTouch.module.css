@@ -4,10 +4,21 @@
   min-height: 80vh;
   display: flex;
   align-items: center;
+  position: relative;
+}
+
+.section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--warm-beige), transparent);
 }
 
 .inner {
-  max-width: 900px;
+  max-width: 1100px;
   margin: 0 auto;
   width: 100%;
 }
@@ -23,23 +34,71 @@
   transform: translateY(0);
 }
 
-.card {
-  position: relative;
-  background: var(--ivory);
-  border-radius: var(--radius-xl);
-  padding: var(--space-2xl) var(--space-xl);
-  box-shadow: var(--shadow-large);
-  overflow: hidden;
+.layout {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: var(--space-2xl);
+  align-items: center;
 }
 
-.cardInner {
+.photoContainer {
+  position: relative;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  gap: var(--space-xl);
+  justify-content: center;
+}
+
+.photo {
+  width: 280px;
+  height: 380px;
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  box-shadow: var(--shadow-large);
   position: relative;
   z-index: 1;
+}
+
+.photo::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, var(--blush) 0%, var(--rose) 50%, var(--burgundy) 100%);
+}
+
+.photoOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(145deg, rgba(255,255,255,0.15) 0%, transparent 50%);
+  z-index: 1;
+}
+
+.photoDecor1 {
+  position: absolute;
+  top: -15px;
+  left: -15px;
+  width: 100%;
+  height: 100%;
+  border: 1.5px solid var(--rose);
+  border-radius: var(--radius-xl);
+  opacity: 0.3;
+  z-index: 0;
+}
+
+.photoDecor2 {
+  position: absolute;
+  bottom: -20px;
+  right: -20px;
+  width: 80px;
+  height: 80px;
+  background: var(--warm-beige);
+  border-radius: 50%;
+  opacity: 0.3;
+  z-index: 0;
+}
+
+.text {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xl);
 }
 
 .label {
@@ -67,18 +126,18 @@
 .example {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   gap: var(--space-md);
   padding: var(--space-xl) var(--space-2xl);
-  background: var(--cream);
+  background: var(--ivory);
   border-radius: var(--radius-lg);
-  margin-top: var(--space-md);
+  box-shadow: var(--shadow-soft);
 }
 
 .exampleDecor {
   width: 30px;
   height: 1px;
-  background: linear-gradient(90deg, transparent, var(--rose), transparent);
+  background: linear-gradient(90deg, var(--rose), transparent);
 }
 
 .exampleFor {
@@ -98,27 +157,33 @@
   line-height: 1.4;
 }
 
-.cardGlow {
-  position: absolute;
-  top: -50%;
-  right: -20%;
-  width: 300px;
-  height: 300px;
-  background: radial-gradient(circle, rgba(201, 168, 156, 0.1) 0%, transparent 70%);
-  border-radius: 50%;
-  z-index: 0;
-}
+@media (max-width: 900px) {
+  .layout {
+    grid-template-columns: 1fr;
+    gap: var(--space-xl);
+  }
 
-@media (max-width: 768px) {
-  .card {
-    padding: var(--space-xl) var(--space-lg);
+  .photoContainer {
+    order: 1;
+  }
+
+  .text {
+    order: 2;
+    text-align: center;
+    align-items: center;
+  }
+
+  .example {
+    align-items: center;
+    text-align: center;
+  }
+
+  .photo {
+    width: 240px;
+    height: 320px;
   }
 
   .title {
     font-size: var(--text-2xl);
-  }
-
-  .example {
-    padding: var(--space-lg);
   }
 }

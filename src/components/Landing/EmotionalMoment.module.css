@@ -11,12 +11,12 @@
 .bg {
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, var(--ivory) 0%, var(--charcoal) 15%, var(--charcoal) 85%, var(--ivory) 100%);
+  background: linear-gradient(180deg, var(--ivory) 0%, var(--charcoal) 12%, var(--charcoal) 88%, var(--ivory) 100%);
   z-index: -1;
 }
 
 .inner {
-  max-width: 800px;
+  max-width: 900px;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -27,7 +27,7 @@
 .message {
   text-align: center;
   opacity: 0;
-  transform: translateY(40px);
+  transform: translateY(50px);
   transition: all var(--duration-slower) var(--ease-out-expo);
 }
 
@@ -38,17 +38,17 @@
 
 .text {
   font-family: var(--font-display);
-  font-size: var(--text-4xl);
+  font-size: var(--text-5xl);
   font-weight: 300;
-  line-height: 1.2;
+  line-height: 1.15;
   color: var(--warm-gray-light);
 }
 
 .textLarge {
   font-family: var(--font-display);
-  font-size: var(--text-5xl);
+  font-size: var(--text-6xl);
   font-weight: 400;
-  line-height: 1.1;
+  line-height: 1.05;
   color: var(--ivory);
 }
 
@@ -58,33 +58,26 @@
 }
 
 .pause {
-  height: 60px;
+  height: 80px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.pauseDot {
-  width: 6px;
-  height: 6px;
-  background: var(--rose);
-  border-radius: 50%;
-  opacity: 0.6;
-  animation: pulse 3s ease-in-out infinite;
-}
-
-@keyframes pulse {
-  0%, 100% { opacity: 0.3; transform: scale(1); }
-  50% { opacity: 0.8; transform: scale(1.2); }
+.pauseLine {
+  width: 40px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--rose), transparent);
+  opacity: 0.4;
 }
 
 @media (max-width: 768px) {
   .text {
-    font-size: var(--text-3xl);
+    font-size: var(--text-4xl);
   }
 
   .textLarge {
-    font-size: var(--text-4xl);
+    font-size: var(--text-5xl);
   }
 }
 
@@ -92,9 +85,5 @@
   .message {
     opacity: 1;
     transform: none;
-  }
-
-  .pauseDot {
-    animation: none;
   }
 }

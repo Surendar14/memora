@@ -79,7 +79,7 @@
   transform: translateX(0);
 }
 
-/* Text reveal - character by character */
+/* Text reveal - line by line */
 .text-reveal {
   overflow: hidden;
 }
@@ -87,7 +87,7 @@
 .text-reveal > span {
   display: inline-block;
   transform: translateY(100%);
-  transition: transform var(--duration-slow) var(--ease-out-expo);
+  transition: transform var(--duration-slower) var(--ease-out-expo);
 }
 
 .text-reveal.visible > span {
@@ -171,6 +171,46 @@
   transform: scaleX(0);
 }
 
+/* Smooth scroll indicator */
+@keyframes scroll-indicator {
+  0% { transform: translateY(0); opacity: 1; }
+  50% { transform: translateY(10px); opacity: 0.5; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+
+/* Photo stack effect */
+.photo-stack {
+  position: relative;
+}
+
+.photo-stack::before,
+.photo-stack::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: inherit;
+  border-radius: inherit;
+  transition: transform var(--duration-normal) var(--ease-out-expo);
+}
+
+.photo-stack::before {
+  transform: rotate(-3deg) translateZ(-10px);
+  opacity: 0.7;
+}
+
+.photo-stack::after {
+  transform: rotate(3deg) translateZ(-20px);
+  opacity: 0.4;
+}
+
+.photo-stack:hover::before {
+  transform: rotate(-5deg) translate(-5px, -5px);
+}
+
+.photo-stack:hover::after {
+  transform: rotate(5deg) translate(5px, -10px);
+}
+
 /* Reduced motion overrides */
 @media (prefers-reduced-motion: reduce) {
   .reveal,
@@ -197,5 +237,10 @@
 
   .image-reveal::after {
     display: none;
+  }
+
+  .photo-stack::before,
+  .photo-stack::after {
+    transform: none;
   }
 }

@@ -4,38 +4,38 @@ import styles from './Occasions.module.css'
 const occasions = [
   {
     name: 'Birthday',
-    description: 'Make their day feel a little more unforgettable.',
-    gradient: 'linear-gradient(135deg, #e5cfc4 0%, #c9a89c 100%)'
+    description: 'Make their day feel\na little more unforgettable.',
+    color: 'var(--blush)'
   },
   {
     name: 'Anniversary',
-    description: 'Celebrate the journey you\'ve shared together.',
-    gradient: 'linear-gradient(135deg, #c9a89c 0%, #a88278 100%)'
-  },
-  {
-    name: 'Wedding',
-    description: 'A gift as beautiful as the moment itself.',
-    gradient: 'linear-gradient(135deg, #f5efe8 0%, #e8ddd3 100%)'
+    description: 'Celebrate everything\nyou\'ve shared.',
+    color: 'var(--rose)'
   },
   {
     name: 'Proposal',
-    description: 'Ask the question in a way they\'ll never forget.',
-    gradient: 'linear-gradient(135deg, #e8ddd3 0%, #c9a89c 100%)'
+    description: 'Ask the question\nin a way they\'ll never forget.',
+    color: 'var(--warm-beige)'
+  },
+  {
+    name: 'Wedding',
+    description: 'A gift as beautiful\nas the moment itself.',
+    color: 'var(--sand)'
   },
   {
     name: 'Milestone',
-    description: 'Mark the moments that define us.',
-    gradient: 'linear-gradient(135deg, #c9a89c 0%, #e5cfc4 100%)'
+    description: 'Mark the moments\nthat define us.',
+    color: 'var(--rose-deep)'
   },
   {
     name: 'Farewell',
-    description: 'Say goodbye with something they\'ll keep forever.',
-    gradient: 'linear-gradient(135deg, #a88278 0%, #8b6f65 100%)'
+    description: 'Say goodbye with something\nthey\'ll keep forever.',
+    color: 'var(--burgundy)'
   },
   {
     name: 'Just Because',
-    description: 'No reason needed. Just love.',
-    gradient: 'linear-gradient(135deg, #e5cfc4 0%, #f5efe8 100%)'
+    description: 'No reason needed.\nJust love.',
+    color: 'var(--blush)'
   }
 ]
 
@@ -50,10 +50,9 @@ export default function Occasions() {
           ref={titleRef}
           className={`${styles.titleGroup} ${titleVisible ? styles.visible : ''}`}
         >
-          <span className={styles.label}>Occasions</span>
           <h2 className={styles.title}>
-            Made for every moment<br />
-            <span className={styles.accent}>that matters.</span>
+            For every moment<br />
+            <span className={styles.accent}>worth remembering.</span>
           </h2>
         </div>
 
@@ -65,12 +64,14 @@ export default function Occasions() {
             <div
               key={occasion.name}
               className={styles.card}
-              style={{ transitionDelay: `${i * 0.06}s` }}
+              style={{ transitionDelay: `${i * 0.08}s` }}
             >
               <div
                 className={styles.cardVisual}
-                style={{ background: occasion.gradient }}
-              />
+                style={{ background: occasion.color }}
+              >
+                <div className={styles.cardOverlay} />
+              </div>
               <div className={styles.cardContent}>
                 <h3 className={styles.cardName}>{occasion.name}</h3>
                 <p className={styles.cardDesc}>{occasion.description}</p>

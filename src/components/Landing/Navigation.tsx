@@ -8,7 +8,7 @@ export default function Navigation() {
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 50)
+      setScrolled(window.scrollY > 80)
     }
     window.addEventListener('scroll', handleScroll, { passive: true })
     return () => window.removeEventListener('scroll', handleScroll)
@@ -38,11 +38,14 @@ export default function Navigation() {
           <button onClick={() => scrollToSection('about')} className={styles.link}>
             About
           </button>
-          <button onClick={() => scrollToSection('experiences')} className={styles.link}>
-            Experiences
+          <button onClick={() => scrollToSection('moments')} className={styles.link}>
+            Moments
           </button>
           <button onClick={openContact} className={styles.contactBtn}>
-            Contact
+            <span>Contact</span>
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+              <path d="M3 7H11M11 7L8 4M11 7L8 10" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/>
+            </svg>
           </button>
         </div>
 

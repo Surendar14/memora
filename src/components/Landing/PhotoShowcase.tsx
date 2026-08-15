@@ -2,12 +2,42 @@ import { useInView } from '../../hooks/useInView'
 import styles from './PhotoShowcase.module.css'
 
 const photos = [
-  { id: 1, ratio: 'tall', color: 'var(--blush)' },
-  { id: 2, ratio: 'wide', color: 'var(--rose)' },
-  { id: 3, ratio: 'square', color: 'var(--warm-beige)' },
-  { id: 4, ratio: 'tall', color: 'var(--rose-deep)' },
-  { id: 5, ratio: 'wide', color: 'var(--blush)' },
-  { id: 6, ratio: 'square', color: 'var(--rose)' }
+  {
+    id: 1,
+    caption: 'June 14, 2025',
+    note: 'The day everything changed.',
+    ratio: 'tall'
+  },
+  {
+    id: 2,
+    caption: 'First trip together',
+    note: 'We got lost and found ourselves.',
+    ratio: 'wide'
+  },
+  {
+    id: 3,
+    caption: 'Your birthday',
+    note: '365 days of you.',
+    ratio: 'square'
+  },
+  {
+    id: 4,
+    caption: 'Just because',
+    note: 'No reason needed.',
+    ratio: 'tall'
+  },
+  {
+    id: 5,
+    caption: 'Our place',
+    note: 'Where we always return.',
+    ratio: 'wide'
+  },
+  {
+    id: 6,
+    caption: 'The little things',
+    note: 'That became everything.',
+    ratio: 'square'
+  }
 ]
 
 export default function PhotoShowcase() {
@@ -35,12 +65,15 @@ export default function PhotoShowcase() {
             <div
               key={photo.id}
               className={`${styles.photo} ${styles[photo.ratio]}`}
-              style={{
-                transitionDelay: `${i * 0.1}s`,
-                '--photo-color': photo.color
-              } as React.CSSProperties}
+              style={{ transitionDelay: `${i * 0.1}s` }}
             >
-              <div className={styles.photoInner} />
+              <div className={styles.photoInner}>
+                <div className={styles.photoOverlay} />
+              </div>
+              <div className={styles.photoMeta}>
+                <p className={styles.photoCaption}>{photo.caption}</p>
+                <p className={styles.photoNote}>{photo.note}</p>
+              </div>
             </div>
           ))}
         </div>
