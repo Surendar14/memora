@@ -1,0 +1,75 @@
+.section {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-section) var(--space-lg);
+  background: var(--ivory);
+}
+
+.inner {
+  max-width: 800px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-2xl);
+}
+
+.message {
+  text-align: center;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all var(--duration-slower) var(--ease-out-expo);
+}
+
+.message.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.text {
+  font-family: var(--font-display);
+  font-size: var(--text-4xl);
+  font-weight: 300;
+  line-height: 1.2;
+  color: var(--charcoal-muted);
+}
+
+.textLarge {
+  font-family: var(--font-display);
+  font-size: var(--text-5xl);
+  font-weight: 400;
+  line-height: 1.1;
+  color: var(--charcoal);
+}
+
+.italic {
+  font-style: italic;
+  color: var(--rose-deep);
+}
+
+.divider {
+  width: 60px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dividerLine {
+  width: 1px;
+  height: 100%;
+  background: linear-gradient(180deg, transparent, var(--rose), transparent);
+  opacity: 0.5;
+}
+
+@media (max-width: 768px) {
+  .text {
+    font-size: var(--text-3xl);
+  }
+
+  .textLarge {
+    font-size: var(--text-4xl);
+  }
+}

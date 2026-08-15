@@ -1,0 +1,125 @@
+.footer {
+  padding: var(--space-2xl) var(--space-lg) var(--space-xl);
+  background: var(--charcoal);
+  color: var(--ivory);
+}
+
+.inner {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xl);
+}
+
+.top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.brand {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+.logo {
+  font-family: var(--font-display);
+  font-size: var(--text-2xl);
+  font-weight: 400;
+  letter-spacing: 0.2em;
+  color: var(--ivory);
+}
+
+.tagline {
+  font-size: var(--text-sm);
+  color: var(--warm-gray);
+  font-style: italic;
+}
+
+.links {
+  display: flex;
+  gap: var(--space-lg);
+}
+
+.link {
+  font-size: var(--text-sm);
+  color: var(--warm-gray-light);
+  transition: color var(--duration-fast);
+  position: relative;
+}
+
+.link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--rose);
+  transition: width var(--duration-normal) var(--ease-out-expo);
+}
+
+.link:hover {
+  color: var(--ivory);
+}
+
+.link:hover::after {
+  width: 100%;
+}
+
+.divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--charcoal-muted), transparent);
+}
+
+.bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.company {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.companyName {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--warm-gray-light);
+}
+
+.companyRelation {
+  font-size: var(--text-xs);
+  color: var(--warm-gray);
+}
+
+.copyright {
+  font-size: var(--text-xs);
+  color: var(--warm-gray);
+}
+
+@media (max-width: 768px) {
+  .top {
+    flex-direction: column;
+    gap: var(--space-lg);
+  }
+
+  .links {
+    flex-direction: column;
+    gap: var(--space-sm);
+  }
+
+  .bottom {
+    flex-direction: column;
+    gap: var(--space-md);
+    text-align: center;
+  }
+
+  .company {
+    align-items: center;
+  }
+}

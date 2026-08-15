@@ -1,0 +1,262 @@
+.section {
+  padding: var(--space-section) var(--space-lg);
+  background: var(--ivory);
+  position: relative;
+}
+
+.inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-2xl);
+}
+
+.titleGroup {
+  text-align: center;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all var(--duration-slow) var(--ease-out-expo);
+}
+
+.titleGroup.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.title {
+  font-family: var(--font-display);
+  font-size: var(--text-5xl);
+  font-weight: 300;
+  line-height: 1.1;
+  color: var(--charcoal);
+  margin-bottom: var(--space-md);
+}
+
+.subtitle {
+  font-family: var(--font-display);
+  font-size: var(--text-2xl);
+  color: var(--charcoal-muted);
+  font-weight: 300;
+}
+
+.italic {
+  font-style: italic;
+  color: var(--rose-deep);
+}
+
+.experienceGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-md);
+  width: 100%;
+}
+
+.experienceGrid.visible .card {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.card {
+  background: var(--cream);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all var(--duration-slow) var(--ease-out-expo);
+  box-shadow: var(--shadow-soft);
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-medium);
+}
+
+/* Hero card */
+.cardHero {
+  grid-column: span 2;
+  padding: var(--space-xl);
+  background: linear-gradient(135deg, var(--charcoal) 0%, var(--charcoal-light) 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 200px;
+  gap: var(--space-md);
+}
+
+.cardDecor {
+  width: 40px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--rose), transparent);
+}
+
+.cardDecorBottom {
+  width: 30px;
+  height: 30px;
+  border: 1px solid rgba(201, 168, 156, 0.3);
+  border-radius: 50%;
+}
+
+.cardHeroText {
+  font-family: var(--font-display);
+  font-size: var(--text-3xl);
+  font-weight: 300;
+  color: var(--ivory);
+  text-align: center;
+  font-style: italic;
+}
+
+/* Photo card */
+.cardPhoto {
+  padding: var(--space-md);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.cardPhotoInner {
+  width: 100%;
+  aspect-ratio: 4/3;
+  background: linear-gradient(135deg, var(--blush) 0%, var(--rose) 100%);
+  border-radius: var(--radius-md);
+}
+
+.cardPhotoLabel {
+  font-family: var(--font-body);
+  font-size: var(--text-xs);
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--warm-gray);
+}
+
+/* Story card */
+.cardStory {
+  padding: var(--space-xl);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.cardStoryQuote {
+  font-family: var(--font-display);
+  font-size: var(--text-3xl);
+  color: var(--rose);
+  opacity: 0.4;
+  line-height: 1;
+}
+
+.cardStoryText {
+  font-family: var(--font-display);
+  font-size: var(--text-lg);
+  font-style: italic;
+  color: var(--charcoal-muted);
+  line-height: 1.5;
+}
+
+/* Quote card */
+.cardQuote {
+  padding: var(--space-xl);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: var(--space-md);
+}
+
+.cardQuoteText {
+  font-family: var(--font-display);
+  font-size: var(--text-lg);
+  font-style: italic;
+  color: var(--charcoal-muted);
+  line-height: 1.5;
+}
+
+.cardQuoteLine {
+  width: 30px;
+  height: 1px;
+  background: var(--rose);
+  opacity: 0.5;
+}
+
+/* Timeline card */
+.cardTimeline {
+  padding: var(--space-xl);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-md);
+}
+
+.cardTimelineLabel {
+  font-family: var(--font-body);
+  font-size: var(--text-xs);
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--warm-gray);
+}
+
+.cardTimelineDots {
+  display: flex;
+  gap: var(--space-md);
+  align-items: center;
+}
+
+.cardTimelineDots span {
+  width: 8px;
+  height: 8px;
+  background: var(--rose);
+  border-radius: 50%;
+  opacity: 0.5;
+}
+
+.cardTimelineDots span:nth-child(2) {
+  opacity: 0.8;
+  width: 10px;
+  height: 10px;
+}
+
+/* Message card */
+.cardMessage {
+  grid-column: span 2;
+  padding: var(--space-xl);
+  background: linear-gradient(135deg, var(--warm-beige) 0%, var(--cream) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-md);
+}
+
+.cardMessageText {
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  color: var(--charcoal);
+  line-height: 1.4;
+}
+
+.cardMessageHeart {
+  font-size: var(--text-2xl);
+  color: var(--rose);
+  opacity: 0.5;
+  flex-shrink: 0;
+}
+
+@media (max-width: 768px) {
+  .experienceGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .cardHero,
+  .cardMessage {
+    grid-column: span 1;
+  }
+
+  .title {
+    font-size: var(--text-4xl);
+  }
+}
