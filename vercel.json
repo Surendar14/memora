@@ -1,0 +1,12 @@
+{
+  "rewrites": [
+    {
+      "source": "/greet",
+      "destination": "https://digital-greet-2yxs1vhwk-ssurendar8055-gmailcoms-projects.vercel.app"
+    },
+    {
+      "source": "/greet/:path*",
+      "destination": "https://digital-greet-2yxs1vhwk-ssurendar8055-gmailcoms-projects.vercel.app/:path*"
+    }
+  ]
+}

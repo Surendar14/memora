@@ -102,16 +102,11 @@
 
 .greetingFlow {
   height: 100%;
-  overflow-y: auto;
+  overflow: hidden;
   padding: 20px 16px;
   display: flex;
   flex-direction: column;
   gap: 20px;
-  scrollbar-width: none;
-}
-
-.greetingFlow::-webkit-scrollbar {
-  display: none;
 }
 
 .flowSection {

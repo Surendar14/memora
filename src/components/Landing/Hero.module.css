@@ -25,10 +25,9 @@
   right: 10%;
   width: 500px;
   height: 500px;
-  background: radial-gradient(circle, rgba(201, 168, 156, 0.15) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(201, 168, 156, 0.12) 0%, transparent 70%);
   border-radius: 50%;
   z-index: -1;
-  filter: blur(40px);
 }
 
 .content {
@@ -216,7 +215,6 @@
   height: 60px;
   background: radial-gradient(ellipse, rgba(26, 20, 18, 0.15) 0%, transparent 70%);
   z-index: 1;
-  filter: blur(10px);
 }
 
 .phoneGlow {
@@ -234,18 +232,13 @@
 
 /* Greeting preview inside phone */
 .greetingPreview {
-  padding: 50px 20px 25px;
+  padding: 44px 20px 22px;
   height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 16px;
-  overflow-y: auto;
-  scrollbar-width: none;
-}
-
-.greetingPreview::-webkit-scrollbar {
-  display: none;
+  gap: 14px;
+  overflow: hidden;
 }
 
 .greetingHeader {

@@ -116,18 +116,28 @@
 }
 
 .scrollContent {
-  height: 100%;
-  overflow-y: auto;
-  scroll-snap-type: y mandatory;
-  scrollbar-width: none;
+  height: auto;
+  animation: exp-advance 45s ease-in-out infinite alternate;
+  will-change: transform;
 }
 
-.scrollContent::-webkit-scrollbar {
-  display: none;
+@keyframes exp-advance {
+  0%, 12% { transform: translateY(0); }
+  22%, 34% { transform: translateY(-16.667%); }
+  44%, 56% { transform: translateY(-33.333%); }
+  66%, 78% { transform: translateY(-50%); }
+  88%, 94% { transform: translateY(-66.667%); }
+  100% { transform: translateY(-83.333%); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scrollContent {
+    animation: none;
+  }
 }
 
 .scrollSection {
-  min-height: 100%;
+  min-height: 552px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -135,7 +145,6 @@
   padding: 30px 20px;
   text-align: center;
   gap: 12px;
-  scroll-snap-align: start;
 }
 
 .scrollSection.dark {
@@ -230,11 +239,19 @@
     width: 260px;
     height: 540px;
   }
+
+  .scrollSection {
+    min-height: 512px;
+  }
 }
 
 @media (max-width: 480px) {
   .phone {
     width: 240px;
     height: 500px;
+  }
+
+  .scrollSection {
+    min-height: 472px;
   }
 }
